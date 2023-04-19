@@ -11,5 +11,4 @@ import (
 
 func SetUpAPI(r *gin.Engine, h handlers.Handler, cfg config.Config) {
 	r.POST("/todo", h.CreateToDO)
-	
 }

@@ -33,3 +33,7 @@ func (r todoRepo) Create(entity models.Create) (err error) {
 
 	return err
 }
+
+// func (r todoRepo) GetList(entity models.Update) (err error){
+
+// }
