@@ -34,6 +34,28 @@ func (r todoRepo) Create(entity models.Create) (err error) {
 	return err
 }
 
-// func (r todoRepo) GetList(entity models.Update) (err error){
+func (r todoRepo) GetByID(id string) (models.ToDo, error) {
+	var a models.ToDo
 
-// }
+	err := r.db.QueryRow(`SELECT 
+		id, 
+		title, 
+		description,
+		created_at, 
+		updated_at,
+		completed
+	FROM todo where id = $1
+	`, id).Scan(
+		&a.ID,
+		&a.Title,
+		&a.Description,
+		&a.Created,
+		&a.Updated,
+		&a.Completed,
+	)
+
+	if err != nil {
+		return a, err
+	}
+	return a, nil
+}

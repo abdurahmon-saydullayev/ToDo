@@ -44,3 +44,17 @@ func (h *Handler) CreateToDO(c *gin.Context) {
 	})
 }
 
+func (h *Handler) GetByID(c *gin.Context) {
+	id := c.Param("id")
+	td, err := h.strg.ToDo().GetByID(id)
+	if err != nil {
+		c.JSON(400, models.DefaultError{
+			Message: err.Error(),
+		})
+		return
+	}
+	c.JSON(200, models.SuccessResponse{
+		Message: "OK",
+		Data:    td,
+	})
+}

@@ -3,7 +3,7 @@ package models
 import "time"
 
 type ToDo struct {
-	ID          int        `json:"id"`
+	ID          string        `json:"id"`
 	Title       string     `json:"title"`
 	Description string     `json:"description"`
 	Created     *time.Time `json:"created_at"`

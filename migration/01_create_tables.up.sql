@@ -4,5 +4,5 @@ CREATE TABLE IF NOT EXISTS todo(
     description VARCHAR(255) NOT NULL,
     created_at TIMESTAMP default (NOW()),
     updated_at TIMESTAMP default (NOW()),
-    deleted_at TIMESTAMP default (NOW())
+    completed boolean default  false
 );
